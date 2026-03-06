@@ -1,18 +1,15 @@
-FROM php:8.2-apache
+FROM php:7.4-apache
 
-# Install mysqli
-RUN docker-php-ext-install mysqli pdo pdo_mysql
-
-# Enable Apache mod_rewrite
+# Enable Apache rewrite
 RUN a2enmod rewrite
 
-# Set working directory
-WORKDIR /var/www/html
+# Install PDO MySQL
+RUN docker-php-ext-install pdo pdo_mysql
 
-# Copy project files
+# Copy project
 COPY . /var/www/html/
 
-# Change Apache DocumentRoot to public
-RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
+# Set public as document root
+RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/*.conf
 
-EXPOSE 80
+WORKDIR /var/www/html

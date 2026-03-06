@@ -76,7 +76,7 @@ class Tweet {
   }
 
   public function getTotalTweets() {
-    $this->db->query('SELECT id FROM TWEETS WHERE user_id = :user_id');
+    $this->db->query('SELECT id FROM tweets WHERE user_id = :user_id');
     $this->db->bind('user_id', $_SESSION['user_id']);
     $this->db->execute();
 
@@ -84,7 +84,7 @@ class Tweet {
   }
 
   public function getTotalTweetsByUserName($username) {
-    $this->db->query('SELECT tweets.id FROM TWEETS 
+    $this->db->query('SELECT tweets.id FROM tweets 
                       JOIN users 
                       WHERE users.username = :username
     ');

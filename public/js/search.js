@@ -1,4 +1,4 @@
-const url = 'http://localhost:8888/twitter/';
+const url = 'http://3.238.49.111:8888/twitter/';
 
 const followBtn = document.querySelectorAll('#followBtn');
 const collection = document.querySelector('.collection');

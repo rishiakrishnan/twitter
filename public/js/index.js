@@ -2,7 +2,7 @@ $(document).ready(function() {
   $('textarea').characterCounter();
 });
 
-let url = 'http://localhost/twitter/';
+let url = 'http://3.238.49.111/twitter/';
 
 const tweetBodyInput = document.querySelector('#tweet-body');
 const postTweetBtn = document.querySelector('#postTweetBtn');

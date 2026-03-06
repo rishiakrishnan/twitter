@@ -1,8 +1,8 @@
-version: "3.9"
+version: "3.8"
 
 services:
 
-  twitter_app:
+  web:
     build: .
     container_name: twitter_php
     ports:
@@ -10,21 +10,16 @@ services:
     volumes:
       - .:/var/www/html
     depends_on:
-      - twitter_db
+      - db
 
-  twitter_db:
-    image: mysql:8
-    container_name: twitter_mysql
+  db:
+    image: mysql:5.7
+    container_name: twitter_db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: twitter
-      MYSQL_USER: twitteruser
-      MYSQL_PASSWORD: twitterpass
+      MYSQL_USER: twitter
+      MYSQL_PASSWORD: twitter
     ports:
       - "3307:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-
-volumes:
-  mysql_data:
