@@ -13,7 +13,7 @@ const followBtn = document.querySelectorAll('.follow-btn');
 const username = document.querySelector('#username');
 const company_id = document.querySelector('#company_id');
 const location_id_value = document.querySelector('#location_id');
-let url = 'http://3.238.49.111/twitter/';
+let url = 'http://3.238.49.111:8080/';
 
 tweetBodyInput.addEventListener('input', postBtn);
 location_id_value.addEventListener('input', postBtn);

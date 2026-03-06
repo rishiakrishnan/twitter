@@ -2,7 +2,7 @@ let followForms = document.querySelectorAll('.followForm');
 const followBtn = document.querySelectorAll('.follow-btn');
 const username = document.querySelector('#username');
 
-let url = 'http://3.238.49.111:8888/twitter/';
+let url = 'http://3.238.49.111:8080/';
 
 followBtn.forEach((btn) => {
   if(btn.classList.contains('following')) {

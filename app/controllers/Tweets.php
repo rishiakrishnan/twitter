@@ -30,7 +30,7 @@ class Tweets extends Controller {
     if(is_ajax_request()) {
       $post = $this->tweetModel->postTweet($_POST['tweet']);
       if($post) {
-        echo 'yes';
+        redirect('tweets');
       } else {
         echo 'no';
       }
