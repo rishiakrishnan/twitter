@@ -53,3 +53,33 @@ Modify the javascript files in public/js. Change the url to your url. Files to m
 ```Javascript
   let url = 'http://localhost:8888/twitter/';
 ```
+
+
+
+
+docker compose up -d
+
+docker ps
+O/P
+twitter_php
+twitter_db
+
+
+docker exec -i twitter_db mysql -utwitter -ptwitter twitter < twitter.sql
+
+docker exec -it twitter_db mysql -utwitter -ptwitter twitter -e "SHOW TABLES;"
+
+O/P
+
+admin
+following_sys
+likes
+news_score
+tweets
+users
+
+http://3.238.49.111:8080
+
+RUN IF WRONG:
+
+docker system prune -a -f
