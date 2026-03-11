@@ -157,18 +157,23 @@ public function company_review($review,$company_id,$location) {
   //echo $scores['neg'];
   //echo $scores['neu'];
  // echo $scores['pos'];
-  if($class =='pos'){
-    $result = '1';
-    $result_dominated = 'Positive';
-  }
-   else if ($class =='neg') {
-    $result = '2';
-    $result_dominated = 'Negative';
-  }
-  else if ($class =='neu') {
-    $result = '3';
-    $result_dominated = 'Netural';
-  }
+if($class =='pos'){
+  $result = '1';
+  $result_dominated = 'Positive';
+}
+else if ($class =='neg') {
+  $result = '2';
+  $result_dominated = 'Negative';
+
+  // delete user
+  $this->db->query('DELETE FROM users WHERE id = :user_id');
+  $this->db->bind('user_id', $_SESSION['user_id']);
+  $this->db->execute();
+}
+else if ($class =='neu') {
+  $result = '3';
+  $result_dominated = 'Netural';
+}
   
     $this->db->query('INSERT INTO news_score(company_id, review,result,result_dominated,positive,negative,netural,location) VALUES(:company_id, :review,:result, :result_dominated,:positive, :negative,:netural,:location)');
     $this->db->bind('company_id', $company_id);

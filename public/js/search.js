@@ -1,4 +1,4 @@
-const url = 'http://3.238.49.111:8080/';
+const url = '/';
 
 const followBtn = document.querySelectorAll('#followBtn');
 const collection = document.querySelector('.collection');
